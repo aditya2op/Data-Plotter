@@ -28,7 +28,7 @@ async function createChart(data) {
 
   const svg = await view.toSVG();
 
-  fs.writeFileSync("company_revenue_chart.svg", svg);
+  fs.writeFileSync("dist/company_revenue_chart.svg", svg);
   console.log("Chart image created successfully");
 }
 

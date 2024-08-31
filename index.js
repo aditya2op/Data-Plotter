@@ -1,5 +1,12 @@
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 const { createChart } = require("./plot");
+const path = require("path");
+const fs = require("fs");
+
+const distDir = path.join(__dirname, "dist");
+if (!fs.existsSync(distDir)) {
+  fs.mkdirSync(distDir);
+}
 
 // Generate dummy data
 const companies = [
@@ -22,7 +29,7 @@ const data = companies.map((company) => ({
 
 // Write data to CSV
 const csvWriter = createCsvWriter({
-  path: "company_data.csv",
+  path: "dist/company_data.csv",
   header: [
     { id: "company", title: "Company" },
     { id: "revenue", title: "Revenue (in millions)" },
